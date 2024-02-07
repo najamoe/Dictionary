@@ -52,29 +52,28 @@ function compare(str1, str2) {
 
 // Binary search function with comparison
 function binarySearchCompare(value, values, compare) {
-  let start = 0;
-  let end = values.length - 1; // Ensure values is not undefined
-  let iterations = 0; //Used for the count iterations for "max iterations needed"
-
-  // Binary search algorithm
-  while (start <= end) {
-    iterations++; // Count iterations
-    const mid = Math.floor((start + end) / 2);
-
-    console.log("Comparing:", values[mid].variant, value); // Check what is being compared
-
-    const comparisonResult = compare(values[mid].variant, value);
-    
-    // Check comparison result
-    if (comparisonResult === 0) {
-      return mid; // Found
-    } else if (comparisonResult < 0) {
-      start = mid + 1; // Update start index
-    } else {
-      end = mid - 1; // Update end index
+    let start = 0;
+    let end = values.length - 1; // Ensure values is not undefined
+    let iterations = 0; // Used for the count iterations for "max iterations needed"
+  
+    // Binary search algorithm
+    while (start <= end) {
+      iterations++; // Count iterations
+      const mid = Math.floor((start + end) / 2);
+  
+      console.log("Comparing:", values[mid].variant, value); // Check what is being compared
+  
+      const comparisonResult = compare(values[mid].variant, value);
+      
+      // Check comparison result
+      if (comparisonResult === 0) {
+        console.log("Max iterations needed:", iterations);
+        return mid; // Found
+      } else if (comparisonResult < 0) {
+        start = mid + 1; // Update start index
+      } else {
+        end = mid - 1; // Update end index
+      }
     }
+    return -1; // Not found
   }
-  console.log("Max iterations needed:", iterations);
-  return -1; // Not found
-}
-
