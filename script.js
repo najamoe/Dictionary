@@ -22,9 +22,15 @@ async function fetchData() {
   const resultIndex = binarySearchCompare("hestetyvs", globalArrayOfWords, compare);
   if (resultIndex !== -1) {
     console.log("Found at index:", resultIndex);
+    console.log("variant:", globalArrayOfWords[resultIndex].variant);
+    console.log("headword:", globalArrayOfWords[resultIndex].headword);
+    console.log("homograph:", globalArrayOfWords[resultIndex].homograph);
+    console.log("partofspeech:", globalArrayOfWords[resultIndex].partofspeech);
+    console.log("id:", globalArrayOfWords[resultIndex].id);
   } else {
     console.log("binarysearch compare not finding word");
   }
+  
   
   // Use .find() to search for a specific word object
   const wordObject = globalArrayOfWords.find(wordObject => wordObject.variant === "hestevogn");
